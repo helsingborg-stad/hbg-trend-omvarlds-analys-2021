@@ -21,7 +21,9 @@ class FrontPage extends \Municipio\Controller\Singular
     public function setHeroPosts()
     {
         $posts = get_field('_to_hero_post_wall');
-        $class = count($posts) === 3 ? 'u-width--33' : 'u-width--25';
+        
+        $class = 'u-width--50 ';
+        $class .= count($posts) === 3 ? 'u-width--33@md' : 'u-width--25@md';
 
         $this->data['heroPosts'] = array_map(function ($heroPost) {
             return new HeroPost($heroPost);

@@ -3,9 +3,9 @@
     <h2>{{ $news->label }}</h2>
     {!! $news->description !!}
 
-    <div class="u-width--100 u-margin__top--2 u-display--flex">
+    <div class="news-box">
         @foreach ($news->posts as $post)
-            <a href="{{ $post->url }}" class="u-width--33 u-margin__x--2 news-post u-position--relative">
+            <a href="{{ $post->url }}" class="u-margin__x--2 news-post u-position--relative">
                 <img src="{{ $post->thumbnail[0] }}" />
 
                 <div class="post-overlay">

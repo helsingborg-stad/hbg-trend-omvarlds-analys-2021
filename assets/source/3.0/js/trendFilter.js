@@ -102,7 +102,7 @@ export default class TrendFilter{
     }
 
     setFilterTerm(){
-        if(!this.params.term){
+        if(!this.params.term || this.params.term === 'null'){
             return false
         }
 

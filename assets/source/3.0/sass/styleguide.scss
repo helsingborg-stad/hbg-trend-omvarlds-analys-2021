@@ -200,6 +200,7 @@
 // @import "~@helsingborg-stad/styleguide/source/sass/pages/home";
 // @import "~@helsingborg-stad/styleguide/source/sass/pages/component";
 
+
 body {
     background: #e2e2e2!important;
 }
@@ -232,14 +233,23 @@ body {
 .hero-posts {
     display: flex;
 
+    @media screen and (max-width: 56em) {    
+        flex-wrap: wrap;
+    }
+    
+
     .hero-post{
-        height: 25vw;
+        height: 50vw;
         position: relative;
         display: flex;
         align-items: end;
         color: #fff;
         text-decoration: none;
 
+        @media screen and (min-width: 56em) {    
+            height: 25vw!important;
+            width: 25vw!important;
+        }
 
         &:hover {
             text-decoration: underline;
@@ -270,20 +280,15 @@ body {
     padding: .4rem .8rem;
     border-radius: var(--radius-md);
     background-color: var(--color-primary);
-    color: #fff;
+    position: relative;
+    color: #fff!important;
     text-decoration: none;
 
-    &:nth-child(3n + 2){
-        background-color: var(--color-primary-light);
-    }
+    &:hover::after {
+        @include cover();
 
-    &:nth-child(3n + 3){
-        background-color: var(--color-primary-dark);
-    }
-
-    &:hover {
-        color: #fff;
-        background-color: var(--color-primary-alpha-dimmed);
+        content: '';
+        background: rgba(255,255,255,0.3)
     }
 
     &.dimmed {
@@ -291,9 +296,26 @@ body {
     }
 }
 
+.news-box {
+    width: 100%;
+    margin-top: calc(var(--base, 8px) * 2)!important;
+    display: flex;
+
+    @media screen and (max-width: 56em) {    
+        flex-direction: column;
+    }
+}
+
 .news-post {
+    width: 33%;
+
+    @media screen and (max-width: 56em) {    
+        width: 100%;
+        margin-bottom: var(--base, 8px)
+    }
+
     img {
-        border-radius: var(--radius-lg);
+        border-radius: calc(var(--radius-lg) * 2);
         width: 100%;
         height: 100%;
         object-fit: cover;
@@ -393,4 +415,4 @@ body {
     width: 1rem;
     height: 1rem;
     background-color: var(--color-primary, #ae0b05);
-  }
+}
