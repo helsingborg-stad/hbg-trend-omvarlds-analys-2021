@@ -76,7 +76,7 @@ class Filter extends \Municipio\Controller\Archive
         }
 
         //Has content matching term
-        if (get_query_var('term')) {
+        if (get_query_var('term') && get_query_var('term') != 'null') {
             $args['s'] = get_query_var('term');
         }
 
@@ -93,13 +93,13 @@ class Filter extends \Municipio\Controller\Archive
             return is_numeric($item);
         });
 
-        return $params;
+        return array_filter($params);
     }
 
     private function getFeaturedImage($post)
     {
         $image_dimensions = array(1200, 300);
-            
+
         $image = wp_get_attachment_image_src(
             get_post_thumbnail_id($post->ID),
             apply_filters(
@@ -120,7 +120,7 @@ class Filter extends \Municipio\Controller\Archive
         $category = $filter->filterVar($_POST['category']);
         $posts = $filter->filterVar($_POST['posts']);
         $term = $_POST['term'];
-        
+
         set_query_var("topic", $topic);
         set_query_var("category", $category);
         set_query_var("posts", $posts);
