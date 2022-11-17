@@ -79,10 +79,7 @@ module.exports = {
                 test: /\.(sa|sc|c)ss$/,
                 use: [
                     {
-                        loader: MiniCssExtractPlugin.loader,
-                        options: {
-                            hmr: process.env.NODE_ENV === 'development'
-                        }
+                        loader: MiniCssExtractPlugin.loader
                     },
                     {
                         loader: 'fast-css-loader',
@@ -99,9 +96,9 @@ module.exports = {
                         },
                     },
                     {
-                        loader: 'fast-sass-loader',
+                        loader: 'sass-loader',
                         options: {
-                            sourceMap: ifProduction(false, true),
+                            sourceMap: ifProduction(false, true)
                         }
                     }
                 ],
