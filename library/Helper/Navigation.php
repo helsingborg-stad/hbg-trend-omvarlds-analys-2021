@@ -873,7 +873,7 @@ class Navigation
         }
 
         //Apply filters
-        return apply_filters('Municipio/Breadcrumbs/Items', $pageData, $queriedObj);
+        return apply_filters('Municipio/Breadcrumbs/Items', $pageData, $queriedObj, 'municipio');
     }
 
     /**
